@@ -2,76 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Juhi Sawant, CHIA – Aspiring Hospitality Management Professional</title>
+  <title>Juhi Sawant – Aspiring Hospitality Management Professional</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      margin: 40px;
+      margin: 0;
       background: #f5f8fa;
       color: #222;
       line-height: 1.6;
     }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      padding: 32px;
-      border-radius: 14px;
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
-    }
     header {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 32px;
-    }
-    .photo {
-      border-radius: 50%;
-      width: 130px;
-      height: 130px;
-      object-fit: cover;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      padding: 40px 20px 20px 20px;
+      text-align: center;
+      background: white;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
     }
     h1 {
-      color: #0047ab;
       margin: 0;
+      font-size: 3.2rem;
+      color: #0047ab;
     }
     h2 {
-      border-bottom: 2px solid #0077cc;
-      padding-bottom: 6px;
-      margin-top: 40px;
-      margin-bottom: 16px;
-      color: #00509e;
+      margin: 8px 0 0 0;
+      font-weight: normal;
+      font-size: 1.6rem;
+      color: #007700;
+    }
+    .profile-img {
+      display: block;
+      margin: 20px auto 10px auto;
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border: 5px solid white;
+    }
+    .mission {
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      padding: 16px 24px;
+      background: #eef8ee;
+      border-left: 6px solid #007700;
+      font-style: italic;
+      color: #2b4d2b;
+      font-size: 1.15rem;
+      border-radius: 6px;
+    }
+    nav {
+      background: white;
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+      border-bottom: 1px solid #ddd;
+    }
+    nav button {
+      background: transparent;
+      border: none;
+      padding: 18px 28px;
+      font-size: 1.15rem;
+      cursor: pointer;
+      color: #444;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.3s, color 0.3s;
+      font-weight: 600;
+    }
+    nav button.active,
+    nav button:hover {
+      color: #0047ab;
+      border-bottom: 3px solid #0047ab;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px 20px 40px 20px;
+      background: none;
+    }
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
     }
     h3 {
-      margin-top: 10px;
-      color: #007700;
+      color: #00509e;
+      margin-top: 30px;
+      margin-bottom: 12px;
     }
     ul {
       margin-left: 20px;
       margin-bottom: 20px;
     }
-    .section {
-      margin-bottom: 24px;
-    }
-    .testimonial, .mission {
-      background: #eef8ee;
-      border-left: 6px solid #007700;
-      padding: 16px 20px;
-      margin: 22px 0;
-      border-radius: 8px;
-      font-style: italic;
-      color: #2b4d2b;
-    }
-    .contact a {
+    a {
       color: #0047ab;
       text-decoration: none;
     }
-    .contact a:hover {
+    a:hover {
       text-decoration: underline;
     }
-    .cta {
+    .contact p {
+      font-size: 1.1rem;
+    }
+    .contact a.cta {
       display: inline-block;
       margin-top: 28px;
       padding: 14px 30px;
@@ -82,40 +115,39 @@
       text-align: center;
       text-decoration: none;
     }
-    .cta:hover {
+    .contact a.cta:hover {
       background: #003377;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <img
-        src="https://randomuser.me/api/portraits/women/68.jpg"
-        alt="Juhi Sawant photo"
-        class="photo"
-      />
-      <div>
-        <h1>Juhi Sawant, CHIA</h1>
-        <h3>Aspiring Hospitality Management Professional</h3>
-        <p>She/Her | Georgia State University | AgeTech Connect Intern</p>
-      </div>
-    </header>
-
-    <section class="mission">
+  <header>
+    <h1>Juhi Sawant</h1>
+    <h2>Aspiring Hospitality Management Professional</h2>
+    <img
+      src="https://randomuser.me/api/portraits/women/68.jpg"
+      alt="Juhi Sawant photo"
+      class="profile-img"
+    />
+    <p class="mission">
       I am passionate about hospitality management and committed to leveraging my leadership, teamwork, and communication skills to become an impactful hotel manager. I continually seek opportunities to learn and grow through education and professional experiences.
-    </section>
+    </p>
+  </header>
 
-    <section class="section">
+  <nav>
+    <button id="tab-about" class="active" onclick="showTab('about')">About Me</button>
+    <button id="tab-contact" onclick="showTab('contact')">Contact Me</button>
+  </nav>
+
+  <main>
+    <section id="about" class="active">
       <h2>Education</h2>
       <h3>College</h3>
-      <p><strong>Georgia State University</strong> — Bachelor of Business Administration (<em>BBA</em>) in Hospitality Administration/Management, Managerial Sciences & Supply Chain (August 2022–May 2026)</p>
+      <p><strong>Georgia State University</strong> — Bachelor of Business Administration (BBA) in Hospitality Administration/Management, Managerial Sciences & Supply Chain (Aug 2022–May 2026)</p>
 
       <h3>High School</h3>
-      <p><strong>Cambridge High School</strong> — High School Diploma (August 2018–May 2022)</p>
-    </section>
+      <p><strong>Cambridge High School</strong> — High School Diploma (Aug 2018–May 2022)</p>
 
-    <section class="section">
       <h2>Work Experience</h2>
       <h3>Jobs</h3>
       <ul>
@@ -131,10 +163,8 @@
         <li>Loving Hands Animal Clinic (2022)</li>
         <li>Shiv's Institute of Dance (2018–2020)</li>
       </ul>
-    </section>
 
-    <section class="section">
-      <h2>Leadership & Extracurricular</h2>
+      <h2>Leadership & Activities</h2>
       <h3>Leadership Roles</h3>
       <ul>
         <li>Communications Chair, American Hotel & Lodging Association (AHLA) (Jun 2024–Present)</li>
@@ -148,9 +178,7 @@
         <li>Interact Club (2021–2022)</li>
         <li>Future Farmers of America (FFA) (2019–2022)</li>
       </ul>
-    </section>
 
-    <section class="section">
       <h2>Volunteer Work</h2>
       <ul>
         <li>STEM Nola (Jul 2025, Apr 2025)</li>
@@ -162,11 +190,8 @@
         <li>Taste of Buckhead (Oct 2023)</li>
         <li>AES Field Day (May 2022)</li>
         <li>House Painting (Apr 2022)</li>
-        <!-- Add more if needed -->
       </ul>
-    </section>
 
-    <section class="section">
       <h2>Certifications & Awards</h2>
       <h3>Certifications</h3>
       <ul>
@@ -187,15 +212,30 @@
       </ul>
     </section>
 
-    <section class="section contact">
-      <h2>Connect with Me</h2>
+    <section id="contact">
+      <h2>Contact Me</h2>
       <p>
-        LinkedIn: <a href="https://linkedin.com/in/juhi-sawant">juhi-sawant</a><br />
+        Feel free to reach out to me via email or LinkedIn:
+      </p>
+      <p>
         Email: <a href="mailto:juhi.sawant@email.com">juhi.sawant@email.com</a><br />
+        LinkedIn: <a href="https://linkedin.com/in/juhi-sawant">juhi-sawant</a><br />
         GitHub: <a href="https://github.com/juhi-sawant">juhi-sawant</a>
       </p>
       <a class="cta" href="mailto:juhi.sawant@email.com?subject=Contact%20from%20Website">Contact Me</a>
     </section>
-  </div>
+  </main>
+
+  <script>
+    function showTab(tabId) {
+      const tabs = ['about', 'contact'];
+      tabs.forEach(id => {
+        document.getElementById(id).classList.remove('active');
+        document.getElementById('tab-' + id).classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
+      document.getElementById('tab-' + tabId).classList.add('active');
+    }
+  </script>
 </body>
 </html>
