@@ -5,32 +5,33 @@
   <title>Juhi Sawant – Aspiring Hospitality Management Professional</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    /* Dark mode background and light text */
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
       margin: 0;
-      background: #1e1e2f;
-      color: #d3d3d3;
+      background-color: #815854;
+      color: #F9EBDE;
       line-height: 1.6;
-      transition: background-color 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     header {
       padding: 40px 20px 20px 20px;
       text-align: center;
-      background: #2a2a42;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
-      border-bottom: 2px solid #444;
+      background-color: transparent;
+      border-bottom: 2px solid #F9EBDE;
     }
     h1 {
       margin: 0;
       font-size: 3.2rem;
-      color: #61dafb;
+      color: #F9EBDE;
     }
     h2 {
       margin: 8px 0 0 0;
       font-weight: normal;
       font-size: 1.6rem;
-      color: #7cfc00;
+      color: #F9EBDE;
+      font-style: italic;
+      font-weight: 500;
     }
     .profile-img {
       display: block;
@@ -39,123 +40,160 @@
       height: 220px;
       object-fit: cover;
       border-radius: 50%;
-      box-shadow: 0 4px 20px rgba(97, 218, 251, 0.7);
-      border: 5px solid #2a2a42;
+      border: 5px solid #F9EBDE;
       transition: box-shadow 0.3s ease;
+      cursor: pointer;
     }
     .profile-img:hover {
-      box-shadow: 0 4px 26px 8px #7cfc00;
+      box-shadow: 0 0 20px #F9EBDE;
     }
     .mission {
       max-width: 700px;
-      margin: 0 auto 40px auto;
+      margin: 0 auto 60px auto;
       padding: 16px 24px;
-      background: #283039;
-      border-left: 6px solid #7cfc00;
+      background: rgba(249, 235, 222, 0.2);
+      color: #815854;
+      border-radius: 14px;
+      font-size: 1.2rem;
       font-style: italic;
-      color: #adebad;
-      font-size: 1.15rem;
-      border-radius: 6px;
-      box-shadow: 0 0 8px rgba(124, 252, 0, 0.5);
-    }
-    nav {
-      background: #2a2a42;
-      display: flex;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      border-bottom: 1px solid #444;
-      user-select: none;
-    }
-    nav button {
-      background: transparent;
-      border: none;
-      padding: 18px 28px;
-      font-size: 1.15rem;
-      cursor: pointer;
-      color: #a0a0a0;
-      border-bottom: 3px solid transparent;
-      transition: border-color 0.3s, color 0.3s;
       font-weight: 600;
-    }
-    nav button.active,
-    nav button:hover {
-      color: #7cfc00;
-      border-bottom: 3px solid #7cfc00;
+      box-shadow: 0 0 10px rgba(249, 235, 222, 0.7);
     }
     main {
       max-width: 900px;
       margin: auto;
-      padding: 20px 20px 40px 20px;
-      background: none;
+      padding: 0 20px 60px 20px;
     }
-    section {
-      display: none;
+    section h2 {
+      position: relative;
+      cursor: default;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #F9EBDE;
+      font-weight: bold;
+      font-size: 2rem;
     }
-    section.active {
-      display: block;
+    section h2.tooltip:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 0;
+      bottom: -130px;
+      width: max-content;
+      max-width: 320px;
+      background: #F9EBDE;
+      color: #815854;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: normal;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      white-space: normal;
+      z-index: 20;
+      pointer-events: none;
     }
-    h3 {
-      color: #7cfc00;
-      margin-top: 30px;
-      margin-bottom: 12px;
+    a.unstyled-link {
+      color: #F9EBDE;
+      text-decoration: underline;
+      position: relative;
+    }
+    a.unstyled-link:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 0;
+      top: 110%;
+      width: max-content;
+      max-width: 300px;
+      background: #F9EBDE;
+      color: #815854;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: normal;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      white-space: normal;
+      z-index: 20;
+      pointer-events: none;
     }
     ul {
       margin-left: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
-    a {
-      color: #61dafb;
-      text-decoration: none;
+    .travel-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+      margin-top: 20px;
     }
-    a:hover {
-      text-decoration: underline;
+    .travel-entry {
+      position: relative;
+      width: 280px;
+      height: 180px;
+      border-radius: 18px;
+      cursor: pointer;
+      overflow: hidden;
+      box-shadow: 0 0 10px #F9EBDEaa;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-size: cover;
+      background-position: center;
+      color: #815854;
+      font-weight: bold;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      font-size: 1.2rem;
+      text-shadow: 0 0 6px rgba(249,235,222,0.9);
     }
-    .contact p {
+    .travel-entry:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 18px 3px #F9EBDEcc;
+      z-index: 10;
+    }
+    .travel-description {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      color: #815854;
+      background: #F9EBDEdd;
+      padding: 20px;
+      font-size: 1rem;
+      line-height: 1.3;
+      opacity: 0;
+      pointer-events: none;
+      border-radius: 18px;
+      transition: opacity 0.3s ease;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+    .travel-entry.active .travel-description {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .travel-entry .title {
+      z-index: 5;
+    }
+    .contact p, .contact a {
       font-size: 1.1rem;
+      color: #F9EBDE;
     }
     .contact a.cta, .resume-link {
       display: inline-block;
-      margin-top: 28px;
+      margin-top: 20px;
       padding: 14px 30px;
-      background: #7cfc00;
-      color: #1e1e2f;
+      background: #F9EBDE;
+      color: #815854;
       font-weight: bold;
-      border-radius: 8px;
+      border-radius: 10px;
       text-align: center;
       text-decoration: none;
       transition: background-color 0.3s;
+      box-shadow: 0 0 15px #F9EBDEaa;
     }
     .contact a.cta:hover, .resume-link:hover {
-      background: #5eb300;
-    }
-    /* Travel blog interactive cards */
-    .travel-entry {
-      background: #283039;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 10px rgba(124, 252, 0, 0.5);
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-    .travel-entry:hover {
-      background-color: #3a4a3a;
-      transform: scale(1.03);
-      box-shadow: 0 0 20px rgba(124, 252, 0, 0.8);
-    }
-    .travel-entry h3 {
-      margin: 0 0 12px 0;
-      color: #adff2f;
-    }
-    .travel-detail {
-      display: none;
-      color: #c6f5a8;
-      font-size: 1rem;
-      line-height: 1.4;
-      margin-top: 12px;
-    }
-    .travel-entry.open .travel-detail {
-      display: block;
+      background: #dcd3cc;
+      box-shadow: 0 0 25px #dcd3ccaa;
     }
   </style>
 </head>
@@ -167,27 +205,42 @@
       src="https://randomuser.me/api/portraits/women/68.jpg"
       alt="Juhi Sawant photo"
       class="profile-img"
-      title="Click any travel blog entry below to read more"
+      title="Click on places below to learn more about my travels"
     />
     <p class="mission">
       I am passionate about hospitality management and committed to leveraging my leadership, teamwork, and communication skills to become an impactful hotel manager. I continually seek opportunities to learn and grow through education and professional experiences.
     </p>
   </header>
 
-  <nav>
-    <button id="tab-about" class="active" onclick="showTab('about')">About Me</button>
-    <button id="tab-travel" onclick="showTab('travel')">Travel Blog</button>
-    <button id="tab-contact" onclick="showTab('contact')">Contact Me</button>
-  </nav>
-
   <main>
-    <section id="about" class="active">
+    <section id="about">
       <h2>Education</h2>
-      <h3>College</h3>
-      <p><strong>Georgia State University</strong> — Bachelor of Business Administration (BBA) in Hospitality Administration/Management, Managerial Sciences & Supply Chain (Aug 2022–May 2026)</p>
+      <h3>
+        <a href="#" class="unstyled-link" data-tooltip="
+President's and Dean's List at Georgia State University (Various semesters)
+Rama Scholarship for the American Dream (2024–2026)
+">Georgia State University</a>
+      </h3>
+      <p>Bachelor of Business Administration (BBA) in Hospitality Administration/Management, Managerial Sciences & Supply Chain (Aug 2022–May 2026)</p>
 
-      <h3>High School</h3>
-      <p><strong>Cambridge High School</strong> — High School Diploma (Aug 2018–May 2022)</p>
+      <h3>
+        <a href="#" class="unstyled-link" data-tooltip="
+High School Diploma, Cambridge High School (2018–2022)
+Farm and Agribusiness Management Competitions (2021)
+SID Dance Competition, 2nd Place (2018)
+">Cambridge High School</a>
+      </h3>
+      <p>High School Diploma (Aug 2018–May 2022)</p>
+
+      <h2 class="tooltip" data-tooltip="Awards & Achievements from both Georgia State University and Cambridge High School">
+        Awards & Achievements
+      </h2>
+      <ul>
+        <li>Rama Scholarship for the American Dream (2024–2026)</li>
+        <li>President’s and Dean's List at Georgia State University (Various semesters)</li>
+        <li>Farm and Agribusiness Management Competitions (2021)</li>
+        <li>SID Dance Competition, 2nd Place (2018)</li>
+      </ul>
 
       <h2>Work Experience</h2>
       <h3>Jobs</h3>
@@ -197,6 +250,7 @@
         <li>Pacsun, Retail Associate (Jun 2023–Sep 2023)</li>
         <li>2B Whole Gluten-Free Bakery (Jun 2022)</li>
       </ul>
+
       <h3>Internships</h3>
       <ul>
         <li>AgeTech Connect, Event Administrator (Jul 2025–Present)</li>
@@ -233,8 +287,7 @@
         <li>House Painting (Apr 2022)</li>
       </ul>
 
-      <h2>Certifications & Awards</h2>
-      <h3>Certifications</h3>
+      <h2>Certifications</h2>
       <ul>
         <li>Hotel Industry Analytics (CHIA) — Mar 2025</li>
         <li>Social Media Marketing — May 2025</li>
@@ -243,35 +296,27 @@
         <li>ServSafe Food Handler — Jan 2024</li>
         <li>Virtual Exchange — Apr 2024</li>
       </ul>
-      <h3>Awards</h3>
-      <ul>
-        <li>Rama Scholarship for the American Dream (2024–2026)</li>
-        <li>President’s and Dean's List at Georgia State University (Various semesters)</li>
-        <li>High School Diploma, Cambridge High School (2018–2022)</li>
-        <li>Farm and Agribusiness Management Competitions (2021)</li>
-        <li>SID Dance Competition, 2nd Place (2018)</li>
-      </ul>
     </section>
 
-    <section id="travel">
+    <section id="travel-blog">
       <h2>Travel Blog</h2>
-      <div class="travel-entry" onclick="toggleDetail(this)">
-        <h3>European Hospitality Experience (France, Spain, Monaco)</h3>
-        <p><em>May 2025</em></p>
-        <div class="travel-detail">
-          This study abroad trip expanded my understanding of luxury hospitality and international customer service standards. Visiting 5-star hotels and cultural landmarks gave me a new appreciation for global hospitality management and personalized guest experiences.
+      <div class="travel-container">
+        <div class="travel-entry" style="background-image: url('https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=800&q=80')" onclick="toggleTravel(this)" role="button" tabindex="0" aria-expanded="false" aria-label="European Hospitality Experience Travel Story">
+          <div class="title">European Hospitality Experience (France, Spain, Monaco)</div>
+          <div class="travel-description" aria-hidden="true">
+            This study abroad trip expanded my understanding of luxury hospitality and international customer service standards. Visiting 5-star hotels and exploring cultural landmarks deepened my appreciation for global hospitality and personalized guest experiences.
+          </div>
         </div>
-      </div>
 
-      <div class="travel-entry" onclick="toggleDetail(this)">
-        <h3>Dubai Hospitality Immersion Program</h3>
-        <p><em>May 2024</em></p>
-        <div class="travel-detail">
-          Exploring Dubai’s hospitality scene taught me about the fusion of innovation with tradition. The rapid growth and technology-driven guest services inspired me to think about the future of sustainable and tech-enabled hotels.
+        <div class="travel-entry" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80')" onclick="toggleTravel(this)" role="button" tabindex="0" aria-expanded="false" aria-label="Dubai Hospitality Immersion Program Travel Story">
+          <div class="title">Dubai Hospitality Immersion Program</div>
+          <div class="travel-description" aria-hidden="true">
+            Exploring Dubai’s hospitality scene taught me about the fusion of innovation with tradition. The rapid growth and technology-driven guest services inspired me to think about the future of sustainable and tech-enabled hotels.
+          </div>
         </div>
-      </div>
 
-      <!-- Add more blog entries here -->
+        <!-- Additional travel stories can be added similarly -->
+      </div>
     </section>
 
     <section id="contact">
@@ -280,29 +325,35 @@
         Feel free to reach out via email or LinkedIn:
       </p>
       <p>
-        Email: <a href="mailto:juhi.sawant@email.com">juhi.sawant@email.com</a><br />
-        LinkedIn: <a href="https://linkedin.com/in/juhi-sawant">juhi-sawant</a><br />
-        GitHub: <a href="https://github.com/juhi-sawant">juhi-sawant</a>
+        Email: <a href="mailto:juhi.sawant@email.com" style="color:#F9EBDE;">juhi.sawant@email.com</a><br />
+        LinkedIn: <a href="https://linkedin.com/in/juhi-sawant" style="color:#F9EBDE;">juhi-sawant</a><br />
+        GitHub: <a href="https://github.com/juhi-sawant" style="color:#F9EBDE;">juhi-sawant</a>
       </p>
       <a class="cta" href="mailto:juhi.sawant@email.com?subject=Contact%20from%20Website">Contact Me</a>
       <br />
-      <a class="resume-link" href="https://example.com/juhi-sawant-resume.pdf" target="_blank" rel="noopener noreferrer" style="margin-top: 12px; display: inline-block;">View My Resume</a>
+      <a class="resume-link" href="https://example.com/juhi-sawant-resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="View My Resume">View My Resume</a>
     </section>
   </main>
 
   <script>
-    function showTab(tabId) {
-      const tabs = ['about', 'travel', 'contact'];
-      tabs.forEach(id => {
-        document.getElementById(id).classList.remove('active');
-        document.getElementById('tab-' + id).classList.remove('active');
+    function toggleTravel(element) {
+      const isActive = element.classList.contains('active');
+      document.querySelectorAll('.travel-entry.active').forEach(el => {
+        if (el !== element) {
+          el.classList.remove('active');
+          el.setAttribute('aria-expanded', 'false');
+          el.querySelector('.travel-description').setAttribute('aria-hidden', 'true');
+        }
       });
-      document.getElementById(tabId).classList.add('active');
-      document.getElementById('tab-' + tabId).classList.add('active');
-    }
-
-    function toggleDetail(element) {
-      element.classList.toggle('open');
+      if (!isActive) {
+        element.classList.add('active');
+        element.setAttribute('aria-expanded', 'true');
+        element.querySelector('.travel-description').setAttribute('aria-hidden', 'false');
+      } else {
+        element.classList.remove('active');
+        element.setAttribute('aria-expanded', 'false');
+        element.querySelector('.travel-description').setAttribute('aria-hidden', 'true');
+      }
     }
   </script>
 </body>
