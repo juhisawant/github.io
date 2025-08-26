@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jane Doe - Finance Professional</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; background: #f8fafb;}
+    .container { max-width: 700px; margin: auto; background: #fff; padding: 32px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.04);}
+    h1 { color: #005bbb; }
+    p { color: #333; }
+    ul { color: #007700; }
+    a { text-decoration: none; color: #005bbb;}
+    .contact { margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Jane Doe</h1>
+    <p>Finance professional specializing in investment analysis, market research, and technology integration.</p>
+    <h3>Core Skills</h3>
+    <ul>
+      <li>Financial Modeling</li>
+      <li>Corporate Finance</li>
+      <li>Business Intelligence</li>
+      <li>Market Research</li>
+    </ul>
+    <div class="contact">
+      <h3>Contact</h3>
+      <p>
+        LinkedIn: <a href="https://linkedin.com/in/janedoe">janedoe</a><br>
+        Email: <a href="mailto:jane.doe@email.com">jane.doe@email.com</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
