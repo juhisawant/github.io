@@ -118,12 +118,35 @@
       margin-left: 20px;
       margin-bottom: 30px;
     }
+    .gallery {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 40px;
+    }
+    .gallery img {
+      max-height: 140px;
+      border-radius: 14px;
+      border: 2px solid #F9EBDE;
+      box-shadow: 0 0 10px #F9EBDE88;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 18px #F9EBDEcc;
+      z-index: 10;
+    }
+    /* Travel blog styles */
     .travel-container {
       display: flex;
       flex-wrap: wrap;
       gap: 25px;
       justify-content: center;
       margin-top: 20px;
+      margin-bottom: 40px;
     }
     .travel-entry {
       position: relative;
@@ -222,6 +245,11 @@ Rama Scholarship for the American Dream (2024–2026)
 ">Georgia State University</a>
       </h3>
       <p>Bachelor of Business Administration (BBA) in Hospitality Administration/Management, Managerial Sciences & Supply Chain (Aug 2022–May 2026)</p>
+      <div class="gallery">
+        <!-- Add your college-related pictures here -->
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80" alt="College Campus" />
+        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80" alt="Graduation" />
+      </div>
 
       <h3>
         <a href="#" class="unstyled-link" data-tooltip="
@@ -231,6 +259,11 @@ SID Dance Competition, 2nd Place (2018)
 ">Cambridge High School</a>
       </h3>
       <p>High School Diploma (Aug 2018–May 2022)</p>
+      <div class="gallery">
+        <!-- Add your high school pictures here -->
+        <img src="https://images.unsplash.com/photo-1501527458915-e8ef0aced219?auto=format&fit=crop&w=600&q=80" alt="High School Campus" />
+        <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&w=600&q=80" alt="School Event" />
+      </div>
 
       <h2 class="tooltip" data-tooltip="Awards & Achievements from both Georgia State University and Cambridge High School">
         Awards & Achievements
@@ -241,6 +274,11 @@ SID Dance Competition, 2nd Place (2018)
         <li>Farm and Agribusiness Management Competitions (2021)</li>
         <li>SID Dance Competition, 2nd Place (2018)</li>
       </ul>
+      <div class="gallery">
+        <!-- Add award ceremony / achievement pictures -->
+        <img src="https://images.unsplash.com/photo-1486308510493-cb241fcdba45?auto=format&fit=crop&w=600&q=80" alt="Award Ceremony" />
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Diploma" />
+      </div>
 
       <h2>Work Experience</h2>
       <h3>Jobs</h3>
@@ -250,6 +288,11 @@ SID Dance Competition, 2nd Place (2018)
         <li>Pacsun, Retail Associate (Jun 2023–Sep 2023)</li>
         <li>2B Whole Gluten-Free Bakery (Jun 2022)</li>
       </ul>
+      <div class="gallery">
+        <!-- Add work-related pictures -->
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80" alt="Office Work" />
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Customer Service" />
+      </div>
 
       <h3>Internships</h3>
       <ul>
@@ -266,6 +309,12 @@ SID Dance Competition, 2nd Place (2018)
         <li>Treasurer, GSU Club Tennis (2022–2023)</li>
         <li>Social Media Manager, Sewa Club (2021–2022)</li>
       </ul>
+      <div class="gallery">
+        <!-- Add leadership or club pictures -->
+        <img src="https://images.unsplash.com/photo-1551836022-9b4981cfb8f1?auto=format&fit=crop&w=600&q=80" alt="Leadership Meeting" />
+        <img src="https://images.unsplash.com/photo-1528870901677-bdfa20863d3d?auto=format&fit=crop&w=600&q=80" alt="Teamwork" />
+      </div>
+
       <h3>Extracurricular Activities</h3>
       <ul>
         <li>International Association of Exhibitions and Events (IAEE) (Jan 2024–Present)</li>
@@ -286,6 +335,11 @@ SID Dance Competition, 2nd Place (2018)
         <li>AES Field Day (May 2022)</li>
         <li>House Painting (Apr 2022)</li>
       </ul>
+      <div class="gallery">
+        <!-- Add volunteer event pictures -->
+        <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=600&q=80" alt="Volunteering" />
+        <img src="https://images.unsplash.com/photo-1485686531765-ba63b07845a7?auto=format&fit=crop&w=600&q=80" alt="Community Event" />
+      </div>
 
       <h2>Certifications</h2>
       <ul>
@@ -296,6 +350,11 @@ SID Dance Competition, 2nd Place (2018)
         <li>ServSafe Food Handler — Jan 2024</li>
         <li>Virtual Exchange — Apr 2024</li>
       </ul>
+      <div class="gallery">
+        <!-- Add certification or award pictures -->
+        <img src="https://images.unsplash.com/photo-1590080877777-b016f4a06d16?auto=format&fit=crop&w=600&q=80" alt="Certification" />
+        <img src="https://images.unsplash.com/photo-1503161482767-c0ee535e9c52?auto=format&fit=crop&w=600&q=80" alt="Awards" />
+      </div>
     </section>
 
     <section id="travel-blog">
