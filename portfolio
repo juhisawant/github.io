@@ -5,29 +5,32 @@
   <title>Juhi Sawant – Aspiring Hospitality Management Professional</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    /* Dark mode background and light text */
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
       margin: 0;
-      background: #f5f8fa;
-      color: #222;
+      background: #1e1e2f;
+      color: #d3d3d3;
       line-height: 1.6;
+      transition: background-color 0.3s ease;
     }
     header {
       padding: 40px 20px 20px 20px;
       text-align: center;
-      background: white;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+      background: #2a2a42;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+      border-bottom: 2px solid #444;
     }
     h1 {
       margin: 0;
       font-size: 3.2rem;
-      color: #0047ab;
+      color: #61dafb;
     }
     h2 {
       margin: 8px 0 0 0;
       font-weight: normal;
       font-size: 1.6rem;
-      color: #007700;
+      color: #7cfc00;
     }
     .profile-img {
       display: block;
@@ -36,26 +39,32 @@
       height: 220px;
       object-fit: cover;
       border-radius: 50%;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      border: 5px solid white;
+      box-shadow: 0 4px 20px rgba(97, 218, 251, 0.7);
+      border: 5px solid #2a2a42;
+      transition: box-shadow 0.3s ease;
+    }
+    .profile-img:hover {
+      box-shadow: 0 4px 26px 8px #7cfc00;
     }
     .mission {
       max-width: 700px;
       margin: 0 auto 40px auto;
       padding: 16px 24px;
-      background: #eef8ee;
-      border-left: 6px solid #007700;
+      background: #283039;
+      border-left: 6px solid #7cfc00;
       font-style: italic;
-      color: #2b4d2b;
+      color: #adebad;
       font-size: 1.15rem;
       border-radius: 6px;
+      box-shadow: 0 0 8px rgba(124, 252, 0, 0.5);
     }
     nav {
-      background: white;
+      background: #2a2a42;
       display: flex;
       justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.07);
-      border-bottom: 1px solid #ddd;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      border-bottom: 1px solid #444;
+      user-select: none;
     }
     nav button {
       background: transparent;
@@ -63,15 +72,15 @@
       padding: 18px 28px;
       font-size: 1.15rem;
       cursor: pointer;
-      color: #444;
+      color: #a0a0a0;
       border-bottom: 3px solid transparent;
       transition: border-color 0.3s, color 0.3s;
       font-weight: 600;
     }
     nav button.active,
     nav button:hover {
-      color: #0047ab;
-      border-bottom: 3px solid #0047ab;
+      color: #7cfc00;
+      border-bottom: 3px solid #7cfc00;
     }
     main {
       max-width: 900px;
@@ -86,7 +95,7 @@
       display: block;
     }
     h3 {
-      color: #00509e;
+      color: #7cfc00;
       margin-top: 30px;
       margin-bottom: 12px;
     }
@@ -95,7 +104,7 @@
       margin-bottom: 20px;
     }
     a {
-      color: #0047ab;
+      color: #61dafb;
       text-decoration: none;
     }
     a:hover {
@@ -104,19 +113,49 @@
     .contact p {
       font-size: 1.1rem;
     }
-    .contact a.cta {
+    .contact a.cta, .resume-link {
       display: inline-block;
       margin-top: 28px;
       padding: 14px 30px;
-      background: #0047ab;
-      color: #fff;
+      background: #7cfc00;
+      color: #1e1e2f;
       font-weight: bold;
       border-radius: 8px;
       text-align: center;
       text-decoration: none;
+      transition: background-color 0.3s;
     }
-    .contact a.cta:hover {
-      background: #003377;
+    .contact a.cta:hover, .resume-link:hover {
+      background: #5eb300;
+    }
+    /* Travel blog interactive cards */
+    .travel-entry {
+      background: #283039;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(124, 252, 0, 0.5);
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .travel-entry:hover {
+      background-color: #3a4a3a;
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(124, 252, 0, 0.8);
+    }
+    .travel-entry h3 {
+      margin: 0 0 12px 0;
+      color: #adff2f;
+    }
+    .travel-detail {
+      display: none;
+      color: #c6f5a8;
+      font-size: 1rem;
+      line-height: 1.4;
+      margin-top: 12px;
+    }
+    .travel-entry.open .travel-detail {
+      display: block;
     }
   </style>
 </head>
@@ -128,6 +167,7 @@
       src="https://randomuser.me/api/portraits/women/68.jpg"
       alt="Juhi Sawant photo"
       class="profile-img"
+      title="Click any travel blog entry below to read more"
     />
     <p class="mission">
       I am passionate about hospitality management and committed to leveraging my leadership, teamwork, and communication skills to become an impactful hotel manager. I continually seek opportunities to learn and grow through education and professional experiences.
@@ -136,6 +176,7 @@
 
   <nav>
     <button id="tab-about" class="active" onclick="showTab('about')">About Me</button>
+    <button id="tab-travel" onclick="showTab('travel')">Travel Blog</button>
     <button id="tab-contact" onclick="showTab('contact')">Contact Me</button>
   </nav>
 
@@ -212,10 +253,31 @@
       </ul>
     </section>
 
+    <section id="travel">
+      <h2>Travel Blog</h2>
+      <div class="travel-entry" onclick="toggleDetail(this)">
+        <h3>European Hospitality Experience (France, Spain, Monaco)</h3>
+        <p><em>May 2025</em></p>
+        <div class="travel-detail">
+          This study abroad trip expanded my understanding of luxury hospitality and international customer service standards. Visiting 5-star hotels and cultural landmarks gave me a new appreciation for global hospitality management and personalized guest experiences.
+        </div>
+      </div>
+
+      <div class="travel-entry" onclick="toggleDetail(this)">
+        <h3>Dubai Hospitality Immersion Program</h3>
+        <p><em>May 2024</em></p>
+        <div class="travel-detail">
+          Exploring Dubai’s hospitality scene taught me about the fusion of innovation with tradition. The rapid growth and technology-driven guest services inspired me to think about the future of sustainable and tech-enabled hotels.
+        </div>
+      </div>
+
+      <!-- Add more blog entries here -->
+    </section>
+
     <section id="contact">
       <h2>Contact Me</h2>
       <p>
-        Feel free to reach out to me via email or LinkedIn:
+        Feel free to reach out via email or LinkedIn:
       </p>
       <p>
         Email: <a href="mailto:juhi.sawant@email.com">juhi.sawant@email.com</a><br />
@@ -223,18 +285,24 @@
         GitHub: <a href="https://github.com/juhi-sawant">juhi-sawant</a>
       </p>
       <a class="cta" href="mailto:juhi.sawant@email.com?subject=Contact%20from%20Website">Contact Me</a>
+      <br />
+      <a class="resume-link" href="https://example.com/juhi-sawant-resume.pdf" target="_blank" rel="noopener noreferrer" style="margin-top: 12px; display: inline-block;">View My Resume</a>
     </section>
   </main>
 
   <script>
     function showTab(tabId) {
-      const tabs = ['about', 'contact'];
+      const tabs = ['about', 'travel', 'contact'];
       tabs.forEach(id => {
         document.getElementById(id).classList.remove('active');
         document.getElementById('tab-' + id).classList.remove('active');
       });
       document.getElementById(tabId).classList.add('active');
       document.getElementById('tab-' + tabId).classList.add('active');
+    }
+
+    function toggleDetail(element) {
+      element.classList.toggle('open');
     }
   </script>
 </body>
